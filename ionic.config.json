@@ -1,0 +1,7 @@
+{
+  "name": "smenup-ui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
