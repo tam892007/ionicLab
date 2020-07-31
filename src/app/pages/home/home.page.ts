@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  user: any;
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.user = await this.authenticationService.getUserInfo()
   }
 
+  async logout() {
+    await this.authenticationService.logout();
+  }
 }

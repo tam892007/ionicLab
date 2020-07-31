@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="top-background">
+    <img src="/assets/ionifits-icon.png" />
+  </div>
 
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Welcome to SMENUP</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="button-container">
+          <ion-button (click)="login()" strong shape="round">
+            Log in
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

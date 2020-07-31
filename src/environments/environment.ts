@@ -14,3 +14,14 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+export const azureWebConfig = {
+  authConfig: 'azure',
+  platform: 'web',
+  clientID: '', //TODO client or application ID
+  discoveryUrl: '',  // TODO the discovery url for the provider OpenID configuration
+  redirectUri: 'http://localhost:8100',
+  scope: '', // TODO
+  logoutUrl: 'https://localhost:8100/logout',
+  implicitLogin: 'CURRENT'
+}
