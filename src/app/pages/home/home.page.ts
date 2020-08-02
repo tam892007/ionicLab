@@ -15,7 +15,8 @@ export class HomePage implements OnInit {
     this.user = await this.authenticationService.getUserInfo()
   }
 
-  async logout() {
-    await this.authenticationService.logout();
+  async gotoJV() {
+    console.error('Goto JV clicked');
+    //await this.authenticationService.logout();
   }
 }

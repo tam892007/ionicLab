@@ -9,23 +9,19 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../pages/home/home.module').then(m => m.HomePageModule)
-      },
-      {
-        path: 'login',
-        loadChildren: () => import('../pages/login/login.module').then(m => m.LoginPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+          }
+        ]
       },
       {
         path: '',
-        redirectTo: '/tabs/home',
+        redirectTo: '/app/tabs/home',
         pathMatch: 'full'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/home',
-    pathMatch: 'full'
   }
 ];
 

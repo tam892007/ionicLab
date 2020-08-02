@@ -1,11 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
   <div class="ion-padding">
+    <ion-label>SMENUP bonjour monde!</ion-label>
     <div align="center" *ngIf="user">
       <ion-avatar>
         <img src="{{ user.picture }}">
@@ -15,6 +18,6 @@
       <p>{{ user.email }}</p>
     </div>
 
-    <ion-button expand="block" (click)="logout();" style="margin-top: 50px">Log out</ion-button>
+    <ion-button expand="block" (click)="gotoJV();">GO TO JV</ion-button>
   </div>
 </ion-content>
