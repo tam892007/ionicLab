@@ -14,12 +14,7 @@ export class AuthGuard implements CanActivate {
   }
 
   async canActivate(): Promise<boolean> {
-    const authed = await this.authentication.isAuthenticated();
-    if (authed) {
-      return true
-    } else {
-      this.navCtrl.navigateRoot('/tabs/login');
-      return false;
-    }
+    //use MSAL Guard 
+    return true;
   }
 }

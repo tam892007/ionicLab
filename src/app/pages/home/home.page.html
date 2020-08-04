@@ -11,11 +11,10 @@
     <ion-label>SMENUP bonjour monde!</ion-label>
     <div align="center" *ngIf="user">
       <ion-avatar>
-        <img src="{{ user.picture }}">
+        <img src="{{ user.avatar }}">
       </ion-avatar>
 
-      <p>{{ user.firstName}} {{ user.lastName }}</p>
-      <p>{{ user.email }}</p>
+      <p>{{ user.username }}</p>
     </div>
 
     <ion-button expand="block" (click)="gotoJV();">GO TO JV</ion-button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../../services/authentication.service";
+import { AuthenticationService } from 'src/app/services/authentication.service'
+import { UserData } from 'src/app/providers/user-data';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +10,25 @@ import {AuthenticationService} from "../../services/authentication.service";
 export class HomePage implements OnInit {
   user: any;
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private userData: UserData) { }
 
   async ngOnInit() {
-    this.user = await this.authenticationService.getUserInfo()
+    let isLoggedIn = await this.userData.isLoggedIn();
+    if (isLoggedIn) {
+      this.user =  {
+        username : await this.userData.getUsername(),
+        avatar: 'assets/user-placeholder.jpg'
+      }
+
+      console.log(this.user);
+    }
+    else {
+      this.user = null;
+    }
   }
 
   async gotoJV() {
     console.error('Goto JV clicked');
-    //await this.authenticationService.logout();
+    this.authenticationService.logout();
   }
 }

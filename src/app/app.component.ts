@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
 import { UserData } from './providers/user-data';
+import { AuthenticationService } from 'src/app/services/authentication.service'
 
 
 @Component({
@@ -34,7 +35,8 @@ export class AppComponent implements OnInit  {
       private storage: Storage,
       private userData: UserData,
       private swUpdate: SwUpdate,
-      private toastCtrl: ToastController
+      private toastCtrl: ToastController,
+      private authService: AuthenticationService,
   ) {
     this.initializeApp();
   }
@@ -98,8 +100,8 @@ export class AppComponent implements OnInit  {
   }
 
   logout() {
-    this.userData.logout().then(() => {
-      return this.router.navigateByUrl('/tabs/home');
+    this.authService.logout().then(() => {
+      return this.router.navigateByUrl('/');
     });
   }
 }

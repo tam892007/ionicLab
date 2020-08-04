@@ -17,9 +17,13 @@ const routes: Routes = [
         ]
       },
       {
-        path: '',
-        redirectTo: '/app/tabs/home',
-        pathMatch: 'full'
+        path: 'login',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule)
+          }
+        ]
       }
     ]
   }
